@@ -1,0 +1,18 @@
+BackReferencing:
+  -> Capturing groups are a way to treat multiple characters as a single unit.
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class BackReferencing {
+
+	public static void main(String[] args) {
+		Pattern p=Pattern.compile("([a-z])([0-9])\\1"); //("([a-z])([0-9])\\2")
+		Matcher m=p.matcher("a1bc3cd44e5f");
+		while(m.find()) {
+		System.out.println(m.group());//c3c             // d44
+		}
+
+	}
+
+}
